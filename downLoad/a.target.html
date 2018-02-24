@@ -1,0 +1,39 @@
+<!-- 利用h5中a标签的新属性download来实现下载功能 -->
+<!-- 参考文件地址   https://www.jianshu.com/p/43772924e300?utm_campaign=haruki&utm_content=note&utm_medium=reader_share&utm_source=weixin -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	#h5{
+		display:block;
+		height:300px;
+		width:300px;
+		border:1px solid red;
+	}
+	div{
+		width:200px;
+		height:200px;
+		background:yellow;
+	}
+</style>
+<body>
+<!-- 利用a标签来实现下载功能，href的值是什么就会下载什么，如果是服务器的链接，就会把服务器信息下载 -->
+	<a id="h5" href="blob:http://localhost:8081/90365ade-3641-433a-8cad-2a213c36ff57" download></a>
+	<!-- 利用js来模拟a标签实现下载功能 -->
+	<div id='download'></div>
+</body>
+<script type="text/javascript">
+	download.onclick = function(){
+		var a = document.createElement('a');
+		a.href = 'blob:http://localhost:8081/90365ade-3641-433a-8cad-2a213c36ff57';
+		a.download = 'filename.txt';
+		a.click();
+		console.log(a)
+		download.appendChild(a)
+	}
+
+</script>
+</html>
